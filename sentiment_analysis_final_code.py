@@ -11,6 +11,9 @@ import seaborn as sns
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
 import re
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
@@ -20,7 +23,7 @@ import re
 # YouTube API setup
 api_service_name = "youtube"
 api_version = "v3"
-DEVELOPER_KEY = "AIzaSyDJDtDkwtUGW95s5wIJjHnXQLuQ9rE0hIQ"
+DEVELOPER_KEY = os.getenv("YOUTUBE_API_KEY")
 
 # Function to extract video id from video link
 def extract_video_id(video_link):
