@@ -31,14 +31,12 @@ This project performs **Sentiment analysis on YouTube video comments** using a t
 
 ```
 
-project/
-│
-├── training\_script.py          # Trains the transformer model
-├── predict\_and\_visualize.py    # Gets video URL, runs predictions, displays GUI
-├── sentiment\_model/            # Trained model and tokenizer (after saving)
-├── .env                        # Your API keys (excluded from Git)
-├── .gitignore
+├── input_screen.png
+├── output_screen.png
 ├── README.md
+├── sentiment machine learning model.py
+└── sentiment_analysis_final_code.py
+
 
 ````
 
@@ -133,6 +131,13 @@ Evaluation metrics from the trained model:
 * 🏆 Useful for content creators, marketers, and platform moderators
 
 ---
+
+## Inputs
+
+![alt text](image.png)
+
+## Outputs
+![alt text](output_screen.png)
 
 ## 🙏 Acknowledgements
 
