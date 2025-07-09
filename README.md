@@ -1,48 +1,142 @@
-# YouTube Comment Sentiment Analysis
+# 🎯 YouTube Comment Sentiment Analysis
 
-This is a fully functional Python project with a GUI using the Tkinter library. It inputs a YouTube video link and performs sentiment analysis on the comments using the DistilBERT model.
-
-## Features
-
-- **Data Extraction**: Automatically extracts comments from a given YouTube video.
-- **Data Cleaning & Preprocessing**: Cleans and preprocesses the extracted comments for analysis.
-- **Sentiment Analysis**: Utilizes a pre-trained DistilBERT model for analyzing the sentiment of the comments.
-- **Visualization**: Displays the type of comments on a YouTube video in the form of graphs.
-
-## Libraries and Tools
-
-- **GUI**: Tkinter
-- **Machine Learning**: PyTorch
-- **Transformers**: Hugging Face's Transformers library
-
-## Skills Demonstrated
-
-### Analytical Skills
-- **Data Extraction**: Fetching comments from YouTube videos.
-- **Data Cleaning**: Handling missing data, removing special characters, and other preprocessing steps.
-- **Data Manipulation**: Transforming data into a format suitable for analysis.
-- **Data Visualization**: Using graphs to display the sentiment of the comments.
-
-### Machine Learning
-- **PyTorch**: Implementing the ML model for sentiment analysis.
-- **Transformers**: Loading pretrained models and tokenization using Hugging Face's Transformers library.
-
-## Installation
-
-To get started with the project, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/youtube-comment-sentiment-analysis.git
-   
-2. Navigate to the project directory:
-   ```bash
-      cd youtube-comment-sentiment-analysis
-   
-4. Install all the requirements and necessary libraries
+This project performs **Sentiment analysis on YouTube video comments** using a transformer-based NLP model. It includes automated **data extraction from YouTube**, **data cleaning**, **training a custom machine learning model**, and **interactive visualization** of sentiment distributions via a Tkinter GUI.
 
 
-Now first run the 'sentiment machine learning model.py' and train it on necessary data after data processing.
-After the run the file 'sentiment_analysis_final_code.py' and paste the youtube video link.
+## 📌 Features
 
-   
+- 🔍 Extracts YouTube comments via YouTube Data API
+- 🧹 Cleans comments by removing noise, stopwords, duplicates, etc.
+- 🤖 Trains a **DistilBERT-based** sentiment classification model
+- 📊 Visualizes results using **pie and bar charts** via Tkinter GUI
+- 📈 Computes evaluation metrics: F1 score, accuracy, precision, recall
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Hugging Face Transformers
+- PyTorch
+- NLTK
+- Pandas & NumPy
+- Tkinter (for GUI)
+- Matplotlib & Seaborn (for visualization)
+- YouTube Data API (via `google-api-python-client`)
+- Fast-ML (for train/validation/test splitting)
+
+---
+
+## 📂 Project Structure
+
+```
+
+project/
+│
+├── training\_script.py          # Trains the transformer model
+├── predict\_and\_visualize.py    # Gets video URL, runs predictions, displays GUI
+├── sentiment\_model/            # Trained model and tokenizer (after saving)
+├── .env                        # Your API keys (excluded from Git)
+├── .gitignore
+├── README.md
+
+````
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/youtube-sentiment-analysis.git
+cd youtube-sentiment-analysis
+````
+
+### 2. Create a `.env` File
+
+Create a `.env` file in the root directory and add your YouTube API key:
+
+```env
+YOUTUBE_API_KEY=your_actual_api_key_here
+```
+
+> ⚠️ Make sure `.env` is listed in `.gitignore`.
+
+### 3. Install Dependencies
+
+Use `pip` to install all required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+You may also need to download some NLTK resources:
+
+```python
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+```
+
+### 4. Train the Sentiment Model
+
+Edit `sentiment machine learning model.py` to point to your dataset (CSV with comments and sentiment labels), then run:
+
+```bash
+python sentiment machine learning model.py
+```
+
+This will save your trained model in the `sentiment_model/` directory.
+
+### 5. Analyze Comments from a YouTube Video
+
+Run:
+
+```bash
+python predict_and_visualize.py
+```
+
+A GUI will appear asking you to paste a YouTube video link. The program will:
+
+* Extract up to 100 comments (Can change as per the use case)
+* Clean the text
+* Predict sentiment using the trained model
+* Display pie and bar charts of the sentiment distribution
+
+---
+
+## 📊 Sentiments Predicted
+
+The model is trained to classify comments into the following categories:
+
+* Anger
+* Fear
+* Happiness
+* Love
+* Sadness
+* Surprise
+
+---
+
+## 📁 Data Source
+
+The training dataset consists of YouTube comments on Oscar-nominated movies sourced from **Kaggle**, labeled by sentiment.
+
+---
+
+## 📈 Results
+
+Evaluation metrics from the trained model:
+
+* ✅ **Accuracy**: \~84% (Varies based on training)
+* 📊 Interactive visualizations for insights
+* 🏆 Useful for content creators, marketers, and platform moderators
+
+---
+
+## 🙏 Acknowledgements
+
+* [Hugging Face Transformers](https://huggingface.co/transformers/)
+* [YouTube Data API](https://developers.google.com/youtube/v3)
+* [Kaggle](https://www.kaggle.com/)
+* [Fast-ML](https://github.com/ritchieng/fast-ml)
